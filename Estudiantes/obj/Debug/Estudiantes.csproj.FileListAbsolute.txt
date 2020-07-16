@@ -1,0 +1,13 @@
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\Estudiantes.exe.config
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\Estudiantes.exe
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\Estudiantes.pdb
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.Properties.Resources.resources
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.csproj.GenerateResource.cache
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.csproj.CoreCompileInputs.cache
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.exe
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.pdb
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.Form1.resources
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\Logica.dll
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\Logica.pdb
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.csprojAssemblyReference.cache
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\obj\Debug\Estudiantes.csproj.CopyComplete
