@@ -1,4 +1,6 @@
-﻿using Logica.Libreria;
+﻿using Datos;
+using LinqToDB;
+using Logica.Libreria;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -14,10 +16,12 @@ namespace Logica
         private List<TextBox> listTextBox;
         private List<Label> listLabel;
         private PictureBox image;
+        //private Librerias librerias;
         public LEstudiantes(List<TextBox> listTextBox, List<Label> listLabel, object[] objetos)
         {
             this.listTextBox = listTextBox;
             this.listLabel = listLabel;
+            //librerias = new Librerias();
             image = (PictureBox)objetos[0];
         }
 
@@ -51,7 +55,17 @@ namespace Logica
             {
                 if (textBoxEvent.comprobarFormatoEmail(listTextBox[3].Text))
                 {
-                    var imageArray = uploadImage.imageToByte(image.Image);
+                    var usuario = _estudiante.Where(u => u.email.Equals(listTextBox[3].Text)).ToList();
+                    if (usuario.Count.Equals(0))
+                    {
+                        guardarUsuario();
+                    }
+                    else
+                    {
+                        listLabel[3].Text = "Email ya registrado";
+                        listLabel[3].ForeColor = Color.Red;
+                        listTextBox[3].Focus();
+                    }
                 }
                 else
                 {
@@ -59,6 +73,27 @@ namespace Logica
                     listLabel[3].ForeColor = Color.Red;
                     listTextBox[3].Focus();
                 }
+            }
+        }
+        private void guardarUsuario()
+        {
+            BeginTransactionAsync();
+            try
+            {
+                var imageArray = uploadImage.imageToByte(image.Image);
+
+                _estudiante.Value(e => e.dni, listTextBox[0].Text)
+                    .Value(e => e.nombre, listTextBox[1].Text)
+                    .Value(e => e.apellido, listTextBox[2].Text)
+                    .Value(e => e.email, listTextBox[3].Text)
+                    .Value(e => e.imagen, imageArray)
+                    .Insert();
+
+                CommitTransaction();
+            }
+            catch (Exception)
+            {
+                RollbackTransaction();
             }
         }
     }

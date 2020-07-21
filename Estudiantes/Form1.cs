@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Logica.Libreria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,9 +15,12 @@ namespace Estudiantes
     public partial class Form1 : Form
     {
         private LEstudiantes estudiante;
+        //private Librerias librerias;
         public Form1()
         {
             InitializeComponent();
+
+            //librerias = new Librerias();
 
             var listTextBox = new List<TextBox>();
             listTextBox.Add(textBoxDNI);
