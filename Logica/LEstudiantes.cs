@@ -15,14 +15,23 @@ namespace Logica
     {
         private List<TextBox> listTextBox;
         private List<Label> listLabel;
-        private PictureBox image;
+        private PictureBox imagen;
+        private Bitmap _imagBitmap;
+        private DataGridView _dataGridView;
+        private NumericUpDown _numericUpDown;
+        private Paginador<Estudiante> _paginador;
         //private Librerias librerias;
         public LEstudiantes(List<TextBox> listTextBox, List<Label> listLabel, object[] objetos)
         {
             this.listTextBox = listTextBox;
             this.listLabel = listLabel;
             //librerias = new Librerias();
-            image = (PictureBox)objetos[0];
+            imagen = (PictureBox)objetos[0];
+            _imagBitmap = (Bitmap)objetos[1];
+            _dataGridView = (DataGridView)objetos[2];
+            _numericUpDown = (NumericUpDown)objetos[3];
+
+            reestablecerCampos();
         }
 
         public void registrar()
@@ -80,7 +89,7 @@ namespace Logica
             BeginTransactionAsync();
             try
             {
-                var imageArray = uploadImage.imageToByte(image.Image);
+                var imageArray = uploadImage.imageToByte(imagen.Image);
 
                 _estudiante.Value(e => e.dni, listTextBox[0].Text)
                     .Value(e => e.nombre, listTextBox[1].Text)
@@ -90,11 +99,116 @@ namespace Logica
                     .Insert();
 
                 CommitTransaction();
+
+                reestablecerCampos();
             }
             catch (Exception)
             {
                 RollbackTransaction();
             }
+        }
+
+        private int _reg_por_pagina = 2;
+        private int _num_pagina = 1;
+        public void buscarEstudiante(string campoBuscar)
+        {
+            List<Estudiante> consulta = new List<Estudiante>();
+            int inicio = (_num_pagina - 1) * _reg_por_pagina;
+
+            if (campoBuscar.Equals(""))
+            {
+                consulta = _estudiante.ToList();
+            }
+            else
+            {
+                consulta = _estudiante.Where(c => c.dni.StartsWith(campoBuscar) || c.nombre.StartsWith(campoBuscar)
+                || c.apellido.StartsWith(campoBuscar)).ToList();
+            }
+
+            if (consulta.Count > 0)
+            {
+                _dataGridView.DataSource = consulta.Select(c => new { 
+                    c.id,
+                    c.dni,
+                    c.nombre,
+                    c.apellido,
+                    c.email
+                }).Skip(inicio).Take(_reg_por_pagina).ToList();
+
+                _dataGridView.Columns[0].Visible = false;
+                _dataGridView.Columns[1].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+                _dataGridView.Columns[3].DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            }
+            else
+            {
+                _dataGridView.DataSource = consulta.Select(c => new {
+                    c.dni,
+                    c.nombre,
+                    c.apellido,
+                    c.email
+                }).ToList();
+            }
+        }
+        private int _idEstudiante = 0;
+        public void getEstudiante()
+        {
+
+        }
+        private List<Estudiante> listEstudiante;
+        public void paginador(String metodo)
+        {
+            switch (metodo)
+            {
+                case "Primero":
+                    _num_pagina = _paginador.primeraPagina();
+                    break;
+                case "Anterior":
+                    _num_pagina = _paginador.anteriorPagina();
+                    break;
+                case "Siguiente":
+                    _num_pagina = _paginador.siguientePagina();
+                    break;
+                case "Ultimo":
+                    _num_pagina = _paginador.ultimaPagina();
+                    break;
+            }
+            buscarEstudiante("");
+        }
+        public void registroPaginas()
+        {
+            _num_pagina = 1;
+            _reg_por_pagina = (int)_numericUpDown.Value;
+            var list = _estudiante.ToList();
+
+            if (list.Count > 0)
+            {
+                _paginador = new Paginador<Estudiante>(listEstudiante, listLabel[4], _reg_por_pagina);
+                buscarEstudiante("");
+            }
+        }
+        private void reestablecerCampos()
+        {
+            imagen.Image = _imagBitmap;
+            listLabel[0].Text = "DNI";
+            listLabel[1].Text = "Nombre";
+            listLabel[2].Text = "Apellido";
+            listLabel[3].Text = "E-mail";
+            listLabel[0].ForeColor = Color.Black;
+            listLabel[1].ForeColor = Color.Black;
+            listLabel[2].ForeColor = Color.Black;
+            listLabel[3].ForeColor = Color.Black;
+            listTextBox[0].Text = "";
+            listTextBox[1].Text = "";
+            listTextBox[2].Text = "";
+            listTextBox[3].Text = "";
+            listEstudiante = _estudiante.ToList();
+
+            if (listEstudiante.Count > 0)
+            {
+                _paginador = new Paginador<Estudiante>(listEstudiante, listLabel[4], _reg_por_pagina);
+            }
+
+            buscarEstudiante("");
         }
     }
 }

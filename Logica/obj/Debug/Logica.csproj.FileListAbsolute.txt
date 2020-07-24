@@ -35,3 +35,4 @@ C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Logica\bin\Debug\S
 C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Logica\bin\Debug\System.Memory.xml
 C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Logica\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Logica\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Logica\bin\Debug\Google.Protobuf.pdb

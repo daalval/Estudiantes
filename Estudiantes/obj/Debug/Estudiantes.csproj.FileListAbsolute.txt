@@ -41,3 +41,4 @@ C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\De
 C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\System.Memory.xml
 C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\System.Numerics.Vectors.xml
 C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Usuario\Desktop\Proyectos\Curso C# Udemy\Estudiantes\Estudiantes\bin\Debug\Google.Protobuf.pdb

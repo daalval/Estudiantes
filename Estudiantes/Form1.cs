@@ -33,8 +33,14 @@ namespace Estudiantes
             listLabel.Add(labelNombre);
             listLabel.Add(labelApellido);
             listLabel.Add(labelEmail);
+            listLabel.Add(labelPaginas);
 
-            Object[] objetos = { pictureBoxImage };
+            Object[] objetos = { 
+                pictureBoxImage,
+                Properties.Resources.baseline_person_black_48dp,
+                dataGridViewEstudiantes,
+                numericUpDownRegistros
+            };
 
             estudiante = new LEstudiantes(listTextBox, listLabel, objetos);
         }
@@ -119,6 +125,52 @@ namespace Estudiantes
         private void buttonAnyadir_Click(object sender, EventArgs e)
         {
             estudiante.registrar();
+        }
+
+        private void textBoxBuscar_TextChanged(object sender, EventArgs e)
+        {
+            estudiante.buscarEstudiante(textBoxBuscar.Text);
+        }
+
+        private void buttonPrimero_Click(object sender, EventArgs e)
+        {
+            estudiante.paginador("Primero");
+        }
+
+        private void buttonAnterior_Click(object sender, EventArgs e)
+        {
+            estudiante.paginador("Anterior");
+        }
+
+        private void buttonSiguiente_Click(object sender, EventArgs e)
+        {
+            estudiante.paginador("Siguiente");
+        }
+
+        private void buttonUltimo_Click(object sender, EventArgs e)
+        {
+            estudiante.paginador("Ultimo");
+        }
+
+        private void numericUpDownRegistros_ValueChanged(object sender, EventArgs e)
+        {
+            estudiante.registroPaginas();
+        }
+
+        private void dataGridViewEstudiantes_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dataGridViewEstudiantes.Rows.Count != 0)
+            {
+                estudiante.getEstudiante();
+            }
+        }
+
+        private void dataGridViewEstudiantes_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (dataGridViewEstudiantes.Rows.Count != 0)
+            {
+                estudiante.getEstudiante();
+            }
         }
     }
 }

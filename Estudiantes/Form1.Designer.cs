@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,17 +48,27 @@
             this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.numericUpDownRegistros = new System.Windows.Forms.NumericUpDown();
+            this.labelPaginas = new System.Windows.Forms.Label();
+            this.buttonSiguiente = new System.Windows.Forms.Button();
+            this.buttonUltimo = new System.Windows.Forms.Button();
+            this.buttonAnterior = new System.Windows.Forms.Button();
+            this.buttonPrimero = new System.Windows.Forms.Button();
+            this.dataGridViewEstudiantes = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.labelRegistrosPorPagina = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegistros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudiantes)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -285,12 +296,143 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.Color.White;
+            this.groupBox3.Controls.Add(this.labelRegistrosPorPagina);
+            this.groupBox3.Controls.Add(this.numericUpDownRegistros);
+            this.groupBox3.Controls.Add(this.labelPaginas);
+            this.groupBox3.Controls.Add(this.buttonSiguiente);
+            this.groupBox3.Controls.Add(this.buttonUltimo);
+            this.groupBox3.Controls.Add(this.buttonAnterior);
+            this.groupBox3.Controls.Add(this.buttonPrimero);
+            this.groupBox3.Controls.Add(this.dataGridViewEstudiantes);
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Location = new System.Drawing.Point(420, 158);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(563, 396);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
+            // 
+            // numericUpDownRegistros
+            // 
+            this.numericUpDownRegistros.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.numericUpDownRegistros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownRegistros.Location = new System.Drawing.Point(141, 282);
+            this.numericUpDownRegistros.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDownRegistros.Name = "numericUpDownRegistros";
+            this.numericUpDownRegistros.Size = new System.Drawing.Size(71, 21);
+            this.numericUpDownRegistros.TabIndex = 11;
+            this.numericUpDownRegistros.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDownRegistros.ValueChanged += new System.EventHandler(this.numericUpDownRegistros_ValueChanged);
+            // 
+            // labelPaginas
+            // 
+            this.labelPaginas.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.labelPaginas.AutoSize = true;
+            this.labelPaginas.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPaginas.Location = new System.Drawing.Point(236, 312);
+            this.labelPaginas.Name = "labelPaginas";
+            this.labelPaginas.Size = new System.Drawing.Size(57, 16);
+            this.labelPaginas.TabIndex = 10;
+            this.labelPaginas.Text = "Página";
+            // 
+            // buttonSiguiente
+            // 
+            this.buttonSiguiente.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonSiguiente.BackColor = System.Drawing.Color.SlateGray;
+            this.buttonSiguiente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonSiguiente.FlatAppearance.BorderSize = 0;
+            this.buttonSiguiente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonSiguiente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonSiguiente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSiguiente.Image = global::Estudiantes.Properties.Resources.baseline_arrow_right_white_18dp1;
+            this.buttonSiguiente.Location = new System.Drawing.Point(277, 331);
+            this.buttonSiguiente.Name = "buttonSiguiente";
+            this.buttonSiguiente.Size = new System.Drawing.Size(94, 37);
+            this.buttonSiguiente.TabIndex = 9;
+            this.buttonSiguiente.UseVisualStyleBackColor = false;
+            this.buttonSiguiente.Click += new System.EventHandler(this.buttonSiguiente_Click);
+            // 
+            // buttonUltimo
+            // 
+            this.buttonUltimo.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonUltimo.BackColor = System.Drawing.Color.SlateGray;
+            this.buttonUltimo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonUltimo.FlatAppearance.BorderSize = 0;
+            this.buttonUltimo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonUltimo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonUltimo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonUltimo.Image = global::Estudiantes.Properties.Resources.baseline_fast_forward_white_18dp1;
+            this.buttonUltimo.Location = new System.Drawing.Point(377, 331);
+            this.buttonUltimo.Name = "buttonUltimo";
+            this.buttonUltimo.Size = new System.Drawing.Size(94, 37);
+            this.buttonUltimo.TabIndex = 8;
+            this.buttonUltimo.UseVisualStyleBackColor = false;
+            this.buttonUltimo.Click += new System.EventHandler(this.buttonUltimo_Click);
+            // 
+            // buttonAnterior
+            // 
+            this.buttonAnterior.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonAnterior.BackColor = System.Drawing.Color.SlateGray;
+            this.buttonAnterior.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonAnterior.FlatAppearance.BorderSize = 0;
+            this.buttonAnterior.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonAnterior.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonAnterior.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAnterior.Image = global::Estudiantes.Properties.Resources.baseline_arrow_left_white_18dp1;
+            this.buttonAnterior.Location = new System.Drawing.Point(177, 331);
+            this.buttonAnterior.Name = "buttonAnterior";
+            this.buttonAnterior.Size = new System.Drawing.Size(94, 37);
+            this.buttonAnterior.TabIndex = 7;
+            this.buttonAnterior.UseVisualStyleBackColor = false;
+            this.buttonAnterior.Click += new System.EventHandler(this.buttonAnterior_Click);
+            // 
+            // buttonPrimero
+            // 
+            this.buttonPrimero.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonPrimero.BackColor = System.Drawing.Color.SlateGray;
+            this.buttonPrimero.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonPrimero.FlatAppearance.BorderSize = 0;
+            this.buttonPrimero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonPrimero.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
+            this.buttonPrimero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrimero.Image = global::Estudiantes.Properties.Resources.baseline_fast_rewind_white_18dp1;
+            this.buttonPrimero.Location = new System.Drawing.Point(77, 331);
+            this.buttonPrimero.Name = "buttonPrimero";
+            this.buttonPrimero.Size = new System.Drawing.Size(94, 37);
+            this.buttonPrimero.TabIndex = 6;
+            this.buttonPrimero.UseVisualStyleBackColor = false;
+            this.buttonPrimero.Click += new System.EventHandler(this.buttonPrimero_Click);
+            // 
+            // dataGridViewEstudiantes
+            // 
+            this.dataGridViewEstudiantes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridViewEstudiantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewEstudiantes.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEstudiantes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewEstudiantes.Location = new System.Drawing.Point(6, 39);
+            this.dataGridViewEstudiantes.Name = "dataGridViewEstudiantes";
+            this.dataGridViewEstudiantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewEstudiantes.Size = new System.Drawing.Size(551, 237);
+            this.dataGridViewEstudiantes.TabIndex = 2;
+            this.dataGridViewEstudiantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewEstudiantes_CellClick);
+            this.dataGridViewEstudiantes.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dataGridViewEstudiantes_KeyUp);
             // 
             // label4
             // 
@@ -335,6 +477,7 @@
             this.textBoxBuscar.Name = "textBoxBuscar";
             this.textBoxBuscar.Size = new System.Drawing.Size(277, 27);
             this.textBoxBuscar.TabIndex = 8;
+            this.textBoxBuscar.TextChanged += new System.EventHandler(this.textBoxBuscar_TextChanged);
             // 
             // label2
             // 
@@ -346,6 +489,17 @@
             this.label2.Size = new System.Drawing.Size(65, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Buscar";
+            // 
+            // labelRegistrosPorPagina
+            // 
+            this.labelRegistrosPorPagina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.labelRegistrosPorPagina.AutoSize = true;
+            this.labelRegistrosPorPagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRegistrosPorPagina.Location = new System.Drawing.Point(6, 284);
+            this.labelRegistrosPorPagina.Name = "labelRegistrosPorPagina";
+            this.labelRegistrosPorPagina.Size = new System.Drawing.Size(129, 16);
+            this.labelRegistrosPorPagina.TabIndex = 12;
+            this.labelRegistrosPorPagina.Text = "Registros/Página";
             // 
             // Form1
             // 
@@ -368,6 +522,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRegistros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEstudiantes)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -400,6 +556,14 @@
         private System.Windows.Forms.PictureBox pictureBoxImage;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dataGridViewEstudiantes;
+        private System.Windows.Forms.Label labelPaginas;
+        private System.Windows.Forms.Button buttonSiguiente;
+        private System.Windows.Forms.Button buttonUltimo;
+        private System.Windows.Forms.Button buttonAnterior;
+        private System.Windows.Forms.Button buttonPrimero;
+        private System.Windows.Forms.NumericUpDown numericUpDownRegistros;
+        private System.Windows.Forms.Label labelRegistrosPorPagina;
     }
 }
 

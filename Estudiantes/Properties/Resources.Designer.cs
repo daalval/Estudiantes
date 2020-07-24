@@ -73,6 +73,46 @@ namespace Estudiantes.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap baseline_arrow_left_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_arrow_left_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_arrow_left_white_18dp1 {
+            get {
+                object obj = ResourceManager.GetObject("baseline_arrow_left_white_18dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_arrow_right_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_arrow_right_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_arrow_right_white_18dp1 {
+            get {
+                object obj = ResourceManager.GetObject("baseline_arrow_right_white_18dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap baseline_cancel_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_cancel_white_18dp", resourceCulture);
@@ -86,6 +126,46 @@ namespace Estudiantes.Properties {
         internal static System.Drawing.Bitmap baseline_delete_white_18dp {
             get {
                 object obj = ResourceManager.GetObject("baseline_delete_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_fast_forward_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_fast_forward_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_fast_forward_white_18dp1 {
+            get {
+                object obj = ResourceManager.GetObject("baseline_fast_forward_white_18dp1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_fast_rewind_white_18dp {
+            get {
+                object obj = ResourceManager.GetObject("baseline_fast_rewind_white_18dp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap baseline_fast_rewind_white_18dp1 {
+            get {
+                object obj = ResourceManager.GetObject("baseline_fast_rewind_white_18dp1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
