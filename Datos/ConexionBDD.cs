@@ -10,7 +10,7 @@ namespace Datos
 {
     public class ConexionBDD : DataConnection
     {
-        public ConexionBDD() : base("DAV2")
+        public ConexionBDD() : base("DAV1")
         {
 
         }

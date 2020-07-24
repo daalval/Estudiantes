@@ -172,5 +172,15 @@ namespace Estudiantes
                 estudiante.getEstudiante();
             }
         }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            estudiante.reestablecerCampos();
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            estudiante.eliminarEstudiante();
+        }
     }
 }

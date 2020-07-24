@@ -225,7 +225,23 @@ namespace Logica
                 buscarEstudiante("");
             }
         }
-        private void reestablecerCampos()
+        public void eliminarEstudiante()
+        {
+            if (_idEstudiante.Equals(0))
+            {
+                MessageBox.Show("Selecciona un estudiante");
+            }
+            else
+            {
+                if (MessageBox.Show("¿Estás seguro de eliminar el estudiante?", "Eliminar estudiante", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    _estudiante.Where(c => c.id.Equals(_idEstudiante)).Delete();
+
+                    reestablecerCampos();
+                }
+            }
+        }
+        public void reestablecerCampos()
         {
             _accion = "insert";
             _num_pagina = 1;
