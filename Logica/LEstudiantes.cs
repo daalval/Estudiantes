@@ -20,6 +20,7 @@ namespace Logica
         private DataGridView _dataGridView;
         private NumericUpDown _numericUpDown;
         private Paginador<Estudiante> _paginador;
+        private string _accion = "insert";
         //private Librerias librerias;
         public LEstudiantes(List<TextBox> listTextBox, List<Label> listLabel, object[] objetos)
         {
@@ -71,9 +72,16 @@ namespace Logica
                     }
                     else
                     {
-                        listLabel[3].Text = "Email ya registrado";
-                        listLabel[3].ForeColor = Color.Red;
-                        listTextBox[3].Focus();
+                        if (usuario[0].id.Equals(_idEstudiante))
+                        {
+                            guardarUsuario();
+                        }
+                        else
+                        {
+                            listLabel[3].Text = "Email ya registrado";
+                            listLabel[3].ForeColor = Color.Red;
+                            listTextBox[3].Focus();
+                        }
                     }
                 }
                 else
@@ -91,12 +99,26 @@ namespace Logica
             {
                 var imageArray = uploadImage.imageToByte(imagen.Image);
 
-                _estudiante.Value(e => e.dni, listTextBox[0].Text)
-                    .Value(e => e.nombre, listTextBox[1].Text)
-                    .Value(e => e.apellido, listTextBox[2].Text)
-                    .Value(e => e.email, listTextBox[3].Text)
-                    .Value(e => e.imagen, imageArray)
-                    .Insert();
+                switch (_accion)
+                {
+                    case "insert":
+                        _estudiante.Value(e => e.dni, listTextBox[0].Text)
+                            .Value(e => e.nombre, listTextBox[1].Text)
+                            .Value(e => e.apellido, listTextBox[2].Text)
+                            .Value(e => e.email, listTextBox[3].Text)
+                            .Value(e => e.imagen, imageArray)
+                            .Insert();
+                        break;
+                    case "update":
+                        _estudiante.Where(u => u.id.Equals(_idEstudiante))
+                            .Set(e => e.dni, listTextBox[0].Text)
+                            .Set(e => e.nombre, listTextBox[1].Text)
+                            .Set(e => e.apellido, listTextBox[2].Text)
+                            .Set(e => e.email, listTextBox[3].Text)
+                            .Set(e => e.imagen, imageArray)
+                            .Update();
+                        break;
+                }
 
                 CommitTransaction();
 
@@ -132,10 +154,12 @@ namespace Logica
                     c.dni,
                     c.nombre,
                     c.apellido,
-                    c.email
+                    c.email,
+                    c.imagen
                 }).Skip(inicio).Take(_reg_por_pagina).ToList();
 
                 _dataGridView.Columns[0].Visible = false;
+                _dataGridView.Columns[5].Visible = false;
                 _dataGridView.Columns[1].DefaultCellStyle.BackColor = Color.WhiteSmoke;
                 _dataGridView.Columns[3].DefaultCellStyle.BackColor = Color.WhiteSmoke;
             }
@@ -152,7 +176,22 @@ namespace Logica
         private int _idEstudiante = 0;
         public void getEstudiante()
         {
+            _accion = "update";
+            _idEstudiante = Convert.ToInt32(_dataGridView.CurrentRow.Cells[0].Value);
+            listTextBox[0].Text = Convert.ToString(_dataGridView.CurrentRow.Cells[1].Value);
+            listTextBox[1].Text = Convert.ToString(_dataGridView.CurrentRow.Cells[2].Value);
+            listTextBox[2].Text = Convert.ToString(_dataGridView.CurrentRow.Cells[3].Value);
+            listTextBox[3].Text = Convert.ToString(_dataGridView.CurrentRow.Cells[4].Value);
 
+            try
+            {
+                byte[] arrayImage = (byte[])_dataGridView.CurrentRow.Cells[5].Value;
+                imagen.Image = uploadImage.byteArrayToImage(arrayImage);
+            }
+            catch (Exception)
+            {
+                imagen.Image = _imagBitmap;
+            }
         }
         private List<Estudiante> listEstudiante;
         public void paginador(String metodo)
@@ -188,6 +227,9 @@ namespace Logica
         }
         private void reestablecerCampos()
         {
+            _accion = "insert";
+            _num_pagina = 1;
+            _idEstudiante = 0;
             imagen.Image = _imagBitmap;
             listLabel[0].Text = "DNI";
             listLabel[1].Text = "Nombre";
